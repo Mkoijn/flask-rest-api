@@ -14,11 +14,6 @@ app.secret_key = 'paul'
 api = Api(app)
 
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
-
 app.config['JWT_AUTH_URL_RULE'] = '/login'  # change from /auth
 jwt = JWT(app, authenticate, identity)  # /auth usually
 
